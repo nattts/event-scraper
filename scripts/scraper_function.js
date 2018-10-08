@@ -1,8 +1,5 @@
-// /* eslint-disable indent */
-// /* eslint-disable no-mixed-spaces-and-tabs */
-
 const puppeteer = require('puppeteer');
-const currentDate = require('./currentDate.js');
+const currentDate = require('../currentDate.js');
 var fs = require('fs');
 
 let link = 'http://www.robertwilson.com/events-list/';
@@ -72,13 +69,6 @@ let scrape = async () => {
  return result;
 };
 
-scrape()
- .then((data)=>{
-  fs.writeFile('./events.json',JSON.stringify(data, null, 4),'utf-8', (err)=>{
-   if(err) throw new Error('something went wrong during writing to the file');
-  });
- })
- .catch((err)=>{
-  throw err.message;
- });
+
+module.exports = scrape;
  
